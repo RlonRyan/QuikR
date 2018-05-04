@@ -1,0 +1,26 @@
+#
+# QuikR Travis buildscript.
+#
+
+# Tell Travis this is an R project.
+language: r
+
+# Tell Travis we need sudo.
+sudo: required
+
+# Tell Travis to use the following platforms.
+os:
+    - linux
+    - osx
+
+# Tell Travis about R packages.
+r_packages:
+    - rmarkdown
+
+# Tell Travis about R Github packages.
+r_github_packages:
+    - jimhester/covr
+
+# Tell Travis what to do after a success.
+after_success:
+    - Rscript -e 'library(covr);codecov()'

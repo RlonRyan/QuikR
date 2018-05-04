@@ -1,0 +1,24 @@
+Package: quikr
+Title: Common R Utility Functions.
+Version: 0.0.1
+Maintainer: RlonRyan <rlonryan@users.noreply.github.com>
+Description: Useful functions for use with R projects.
+Author: RlonRyan
+Depends: R (>= 3.3.1)
+Imports:
+    dplyr,
+    purrr,
+    assertthat
+Suggests:
+    tidyverse,
+    testthat,
+    knitr,
+    rmarkdown,
+    ggplot2
+VignetteBuilder: knitr
+License: MIT
+Encoding: UTF-8
+LazyData: true
+URL: https://github.com/rlonryan/QuikR
+BugRepots: https://github.com/rlonryan/QuikR/issues
+RoxygenNote: 6.0.1

@@ -1,0 +1,11 @@
+---
+title: "Common R Utilities"
+author: "RlonRyan"
+date: \today
+output: pdf_document
+bibliography: references.bib
+vignette: >
+  %\VignetteIndexEntry{ Common R utility functions. }
+  %\VignetteEngine{knitr::rmarkdown}
+  %\usepackage[utf8]{inputenc}
+---
