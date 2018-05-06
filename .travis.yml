@@ -5,21 +5,25 @@
 # Tell Travis this is an R project.
 language: r
 
-# Tell Travis we need sudo.
-sudo: required
+# Tell Travis to cache packages, to save time.
+cache: packages
 
-# Tell Travis to use the following platforms.
-os:
-    - linux
+# Tell Travis we don't need sudo.
+sudo: false
+
+# Tell Travis to use the trusty distribution.
+dist: trusty
+
+# Tell Travis which version(s) of R to use.
+r:
+  - oldrel
+  - release
+  - devel
 
 # Tell Travis about R packages.
 r_packages:
-    - rmarkdown
-
-# Tell Travis about R Github packages.
-r_github_packages:
-    - jimhester/covr
+  - devtools
 
 # Tell Travis what to do after a success.
 after_success:
-    - Rscript -e 'library(covr);codecov()'
+    - Rscript -e 'covr::codecov()'
