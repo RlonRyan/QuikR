@@ -33,7 +33,7 @@ vqdiff(beaver1, beaver2);
 #> viewer showing all differences between beaver1 and bever2 on a cell-by-cell basis.
 ```
 
-[build-link]:https://travis-ci.org/rlonryan/QuikR
+[build-link]:https://travis-ci.org/RlonRyan/QuikR
 [build-status]:https://travis-ci.org/QuikMod/QuikR.svg?branch=master "Travis-CI Build Status"
 
 [coverage-link]:https://codecov.io/github/rlonryan/quikr?branch=master

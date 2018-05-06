@@ -23,19 +23,19 @@
 select <- function(func, selection) {
   # Extract the function.
   func <- match.fun(func);
-  
+
   # Create the wrapped function.
   wrapped <- function(...) {
     # Call the function with the given arguments to get the result.
     result <- do.call(func, list(...));
-    
+
     # Extract the selected result value.
     extracted <- result[selection];
-    
+
     # Return the extracted value.
     return(extracted);
   }
-  
+
   # Return the wrapped function.
   return(wrapped);
 }
@@ -47,6 +47,7 @@ select <- function(func, selection) {
 #'
 #' @param func the function to have it's result format remapped.
 #' @param mapping the mapping to remap the function with.
+#' @param drop if return values that weren't in the mapping should be dropped.
 #'
 #' @name remap
 #'
@@ -56,24 +57,24 @@ select <- function(func, selection) {
 remap <- function(func, mapping, drop=FALSE) {
   # Extract the function.
   func <- match.fun(func);
-  
+
   # Compute the selection.
   selection<-names(mapping);
-  
+
   # Create the wrapped function.
   wrapped <- function(...) {
     # Call the function with the given arguments to get the result.
     result <- do.call(func, list(...));
-    
+
     # Extract the selected values.
     selected <- result[selection];
-    
+
     # Extract the unselected values.
     unselected <- setdiff(result, selected);
-    
+
     # Rename the selected values.
     names(selected) <- mapping;
-    
+
     # Return the result, based on the mode.
     if (drop) {
       return(selected);
@@ -81,7 +82,7 @@ remap <- function(func, mapping, drop=FALSE) {
       return(c(selected, unselected));
     }
   }
-  
+
   # Return the wrapped function.
   return(wrapped);
 }

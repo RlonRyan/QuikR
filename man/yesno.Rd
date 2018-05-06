@@ -2,12 +2,13 @@
 % Please edit documentation in R/util.R
 \name{yesno}
 \alias{yesno}
-\alias{yn}
 \title{Returns 'yes' or 'no' based off of the provided boolean input.}
 \usage{
-yn(bool, yes = "yes", no = "no")
+yesno(bool, yes = "yes", no = "no")
 }
 \arguments{
+\item{bool}{the boolean value to test.}
+
 \item{yes}{the value to return on a true  input.}
 
 \item{no}{the value to return on a false input.}

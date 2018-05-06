@@ -10,6 +10,8 @@ remap(func, mapping, drop = FALSE)
 \item{func}{the function to have it's result format remapped.}
 
 \item{mapping}{the mapping to remap the function with.}
+
+\item{drop}{if return values that weren't in the mapping should be dropped.}
 }
 \description{
 Like the select function, but does not drop unmatched results.

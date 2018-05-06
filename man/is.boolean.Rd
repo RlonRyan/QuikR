@@ -15,7 +15,11 @@ is.true(x)
 is.false(x)
 }
 \arguments{
-\item{x}{the value to test}
+\item{x}{the value to test.}
+
+\item{x}{the value to test.}
+
+\item{x}{the value to test.}
 }
 \value{
 \code{is.boolean(x)} \code{TRUE} if the value is a boolean, \code{FALSE} otherwise.

@@ -12,7 +12,7 @@
 #
 # Alias of the view function.
 #
-view <- View
+view <- utils::View
 
 #'
 #' The missing printf function.
@@ -32,16 +32,16 @@ printf <- function(format, ...) {
 #'
 #' Returns 'yes' or 'no' based off of the provided boolean input.
 #'
+#' @param bool the boolean value to test.
 #' @param yes the value to return on a true  input.
 #' @param no  the value to return on a false input.
 #'
 #' @name yesno
-#' @aliases yn
 #'
 #' @export
 #' @rdname yesno
 #'
-yn <- yesno <- function(bool, yes='yes', no='no') {
+yesno <- function(bool, yes='yes', no='no') {
 
   # If TRUE then yes.
   if (bool == TRUE) {

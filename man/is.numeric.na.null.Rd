@@ -6,6 +6,9 @@
 \usage{
 \method{is.numeric}{na.null}(x)
 }
+\arguments{
+\item{x}{the value to test.}
+}
 \description{
 Uses is.numeric(), is.na(), and is.null() internally.
 }

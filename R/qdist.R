@@ -38,8 +38,8 @@ qdist.numeric <- function(x, y) {
     # Compute distance.
     dist <- (x - y) %>%
         map(~.x^2) %>%
-        reduce('+') %>%
-        sqrt();
+        reduce(sum) %>%
+        sqrt(.);
 
     # Return the distance.
     return(dist);
@@ -55,7 +55,7 @@ qdist.string <- function(x, y) {
     y <- toString(y);
 
     # Compute distances.
-    dist <- adist(x, y)[1,1];
+    dist <- utils::adist(x, y)[1,1];
 
     # Return distance.
     return(dist);
@@ -82,8 +82,8 @@ qdist.list <- function(x, y) {
     # Compute distances.
     dist <- map2(x, y, ~qdist(.x, .y)) %>%
         map(~.x^2) %>%
-        reduce('+') %>%
-        sqrt();
+        reduce(sum) %>%
+        sqrt(.);
 
     # Return distance.
     return(dist);

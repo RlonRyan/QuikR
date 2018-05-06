@@ -14,7 +14,7 @@
 #'
 #' The following methods were added as to increase consistency with other is.something methods.
 #'
-#' @param x the value to test
+#' @param x the value to test.
 #'
 #' @return \code{is.boolean(x)} \code{TRUE} if the value is a boolean, \code{FALSE} otherwise.
 #'
@@ -27,6 +27,8 @@ is.boolean <- function(x) {
 
 #'
 #' Test if a Value is TRUE
+#'
+#' @param x the value to test.
 #'
 #' @return \code{is.true(x)} \code{TRUE} if the value is true, \code{FALSE} otherwise.
 #'
@@ -41,6 +43,8 @@ is.true <- function(x) {
 #'
 #' Test if a Value is FALSE
 #'
+#' @param x the value to test.
+#'
 #' @return \code{is.false(x)} \code{TRUE} if the value is false, \code{FALSE} otherwise.
 #'
 #' @name is.boolean
@@ -54,6 +58,8 @@ is.false <- function(x) {
 #' Determines if a value is a number, na, or null.
 #'
 #' Uses is.number(), is.na(), and is.null() internally.
+#'
+#' @param x the value to test.
 #'
 #' @name is.number.na.null
 #' @export
@@ -72,6 +78,8 @@ is.number.na.null <- function(x) {
 #' Uses is.numeric(), is.na(), and is.null() internally.
 #'
 #' Have to give export name due to oddity with roxygen export.
+#'
+#' @param x the value to test.
 #'
 #' @name is.numeric.na.null
 #' @export is.numeric.na.null

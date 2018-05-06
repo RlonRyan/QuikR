@@ -10,7 +10,7 @@
 # ==================================================
 
 #'
-#' @title Compute a Difference
+#' @title Compute a Value Difference
 #'
 #' @description
 #' Computes the difference between two values.
@@ -43,6 +43,8 @@ qdiff.value <- function(actual, expected, tolerance) {
 }
 
 #'
+#' @title Compute a Cell Difference
+#'
 #' @param row the row that the cell is a member of.
 #' @param col the column that the cell is a member of within the given row.
 #'
@@ -60,6 +62,8 @@ qdiff.cell <- function(row, col, actual, expected, tolerance) {
     return(result);
 }
 
+#'
+#' @title Compute a Table Difference
 #'
 #' @param tolerances a list of tolerance values, on a per-column basis.
 #' @param drop whether or not to keep information on cells that are determined to be the same.
@@ -101,6 +105,8 @@ qdiff <- function(actual, expected, tolerances=NULL, drop=TRUE) {
     return(result);
 }
 
+#'
+#' @title Compute and View a Table Difference
 #'
 #' @name qdiff
 #' @export

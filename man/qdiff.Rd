@@ -8,7 +8,7 @@
 \alias{qdiff}
 \alias{qdiff}
 \alias{vqdiff}
-\title{Compute a Difference}
+\title{Compute a Value Difference}
 \usage{
 qdiff.value(actual, expected, tolerance)
 
