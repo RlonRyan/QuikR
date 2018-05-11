@@ -5,6 +5,9 @@
 # Tell Travis this is an R project.
 language: r
 
+# Tell Travis not to freak out about R compile warnings.
+warnings_are_errors: false
+
 # Tell Travis to cache packages, to save time.
 cache: packages
 
