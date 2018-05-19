@@ -34,7 +34,7 @@ vqdiff(beaver1, beaver2);
 ```
 
 [build-link]:https://travis-ci.org/RlonRyan/QuikR
-[build-status]:https://travis-ci.org/QuikMod/QuikR.svg?branch=master "Travis-CI Build Status"
+[build-status]:https://travis-ci.org/RlonRyan/QuikR.svg?branch=master "Travis-CI Build Status"
 
-[coverage-link]:https://codecov.io/github/rlonryan/quikr?branch=master
-[coverage-status]:https://codecov.io/github/rlonryan/quikr/coverage.svg?branch=master
+[coverage-link]:https://codecov.io/github/RlonRyan/QuikR?branch=master
+[coverage-status]:https://codecov.io/github/RlonRyan/QuikR/coverage.svg?branch=master
