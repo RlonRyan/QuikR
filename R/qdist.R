@@ -11,6 +11,11 @@
 # ==================================================
 
 #'
+#' @title Quick Distance
+#'
+#' @description
+#' Computes the distance between two numbers.
+#'
 #' @name qdist
 #' @export
 #'

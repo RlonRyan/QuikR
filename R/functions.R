@@ -15,12 +15,12 @@
 #' @param func the function to wrap.
 #' @param selection the results to be retained from the function.
 #'
-#' @name select
+#' @name fun.res.select
 #'
 #' @export
-#' @rdname select
+#' @rdname fun.res.select
 #'
-select <- function(func, selection) {
+fun.res.select <- function(func, selection) {
   # Extract the function.
   func <- match.fun(func);
 
@@ -49,12 +49,12 @@ select <- function(func, selection) {
 #' @param mapping the mapping to remap the function with.
 #' @param drop if return values that weren't in the mapping should be dropped.
 #'
-#' @name remap
+#' @name fun.res.remap
 #'
 #' @export
-#' @rdname remap
+#' @rdname fun.res.remap
 #'
-remap <- function(func, mapping, drop=FALSE) {
+fun.res.remap <- function(func, mapping, drop=FALSE) {
   # Extract the function.
   func <- match.fun(func);
 

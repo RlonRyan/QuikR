@@ -56,3 +56,37 @@ test_that("qdiff works with mtcars", {
     expect_equal(b.a.len, b.e.len);
 
 })
+
+test_that("qdiff works with matricies", {
+
+    # Create a matrix.
+    expected <- qgen.matrix(5, 5);
+
+    # Create acutal.
+    actual <- expected;
+
+    # Perform initial diff.
+    diff <- qdiff(actual, expected);
+
+    # Test that no cells differ to start.
+    expect_equal(nrow(diff), 0);
+
+    # Iterate, changing actual each time.
+    i <- 0;
+    for (r in 1:nrow(expected)) {
+        for (c in 1:ncol(expected)) {
+            # Increment i.
+            i <- i + 1;
+
+            # Change a value.
+            actual[r, c] <- actual[r, c] * 2;
+
+            # Compute difference.
+            diff <- qdiff(actual, expected);
+
+            # Test that number of differing cells is the same.
+            expect_equal(nrow(diff), i)
+        }
+    }
+
+})

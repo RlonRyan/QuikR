@@ -13,7 +13,7 @@
 #
 # The test group context, should be related to filename.
 #
-context("Empty");
+context("empty");
 
 #
 # The acutal tests.
@@ -22,10 +22,10 @@ test_that("True is True", {
     expect_true(TRUE);
     expect_equal(TRUE, TRUE);
     expect_identical(TRUE, TRUE);
-});
+})
 
 test_that("False is False", {
     expect_false(FALSE);
     expect_equal(FALSE, FALSE);
     expect_identical(FALSE, FALSE);
-});
+})
