@@ -4,7 +4,18 @@
 \name{quikr}
 \alias{quikr}
 \alias{quikr-package}
-\title{Useful functions for use with R projects.}
+\alias{quikr-package}
+\title{QuikR: Assorted R Utility Functions}
 \description{
-Useful functions for use with R projects.
+QuikR is a package containing assorted utility functions for use in the R language.
+}
+\details{
+Nothing to see here atm.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/rlonryan/QuikR}
+}
+
 }

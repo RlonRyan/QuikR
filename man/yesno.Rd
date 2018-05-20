@@ -2,7 +2,7 @@
 % Please edit documentation in R/util.R
 \name{yesno}
 \alias{yesno}
-\title{Returns 'yes' or 'no' based off of the provided boolean input.}
+\title{Convert a Boolean to a String}
 \usage{
 yesno(bool, yes = "yes", no = "no")
 }
@@ -13,6 +13,14 @@ yesno(bool, yes = "yes", no = "no")
 
 \item{no}{the value to return on a false input.}
 }
+\value{
+'yes' or 'no'.
+}
 \description{
 Returns 'yes' or 'no' based off of the provided boolean input.
+}
+\details{
+If \code{yes} is specified, the value of \code{yes} is used instead of the default value \code{'yes'}.
+
+If \code{no} is specified, the value of \code{no} is used instead of the default value \code{'no'}.
 }

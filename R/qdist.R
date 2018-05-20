@@ -1,5 +1,5 @@
 # ==================================================
-# qdist.R
+# qdelta.R
 # --------------------------------------------------
 #
 # R utility function for computing distance between
@@ -11,15 +11,67 @@
 # ==================================================
 
 #'
-#' @title Quick Distance
+#' @name qdelta.number
+#' @rdname qdelta.number
+#' @family qdelta functions
+#'
+#' @title
+#' Compute the Delta Between Two Numbers
 #'
 #' @description
-#' Computes the distance between two numbers.
+#' Computes the delta between two boolean values, \code{x} and \code{y}.
 #'
-#' @name qdist
+#' @details
+#' Returns 0 or 1 depending on if the two boolean values are different. In the case that something went wrong, will return \code{Inf}.
+#'
+#' @param x the first boolean value.
+#' @param y the second boolean value.
+#'
+#' @return A single numeric delta value.
+#'
 #' @export
 #'
-qdist.number <- function(x, y) {
+qdelta.boolean <- function(x, y) {
+    # Validate inputs
+    assert_that(is.boolean(x), msg="x must be a boolean value!");
+    assert_that(is.boolean(y), msg="y must be a boolean value!");
+
+    # Default distance.
+    dist <- Inf;
+
+    # Compute distance.
+    if (x == y) {
+        dist <- 0;
+    } else {
+        dist <- 1;
+    }
+
+    # Return the distance.
+    return(dist);
+}
+
+#'
+#' @name qdelta.number
+#' @rdname qdelta.number
+#' @family qdelta functions
+#'
+#' @title
+#' Compute the Delta Between Two Numbers
+#'
+#' @description
+#' Computes the delta between two numbers, \code{x} and \code{y}.
+#'
+#' @details
+#' Computes the absolute value of the difference between the two numbers.
+#'
+#' @param x the first number.
+#' @param y the second number.
+#'
+#' @return A single numeric delta value.
+#'
+#' @export
+#'
+qdelta.number <- function(x, y) {
     # Validate inputs
     assert_that(is.number.na.null(x), msg="x must be a number!");
     assert_that(is.number.na.null(y), msg="y must be a number!");
@@ -32,10 +84,27 @@ qdist.number <- function(x, y) {
 }
 
 #'
-#' @name qdist
+#' @name qdelta.numeric
+#' @rdname qdelta.numeric
+#' @family qdelta functions
+#'
+#' @title
+#' Compute the Delta Between Two Numeric Values
+#'
+#' @description
+#' Computes the delta between two numeric values, \code{x} and \code{y}.
+#'
+#' @details
+#' Computes the euclidean distance between the numeric values, which are possibly numeric lists.
+#'
+#' @param x the first numeric value.
+#' @param y the second numeric value.
+#'
+#' @return A single numeric delta value.
+#'
 #' @export
 #'
-qdist.numeric <- function(x, y) {
+qdelta.numeric <- function(x, y) {
     # Validate inputs
     assert_that(is.numeric.na.null(x), msg="x must be a numeric!");
     assert_that(is.numeric.na.null(y), msg="y must be a numeric!");
@@ -51,10 +120,27 @@ qdist.numeric <- function(x, y) {
 }
 
 #'
-#' @name qdist
+#' @name qdelta.string
+#' @rdname qdelta.string
+#' @family qdelta functions
+#'
+#' @title
+#' Compute the Delta Between Two Strings
+#'
+#' @description
+#' Computes the delta between two strings, \code{x} and \code{y}.
+#'
+#' @details
+#' Uses \code{\link[utils]{adist}} to compute the string delta value.
+#'
+#' @param x the first string.
+#' @param y the second string.
+#'
+#' @return A single numeric delta value.
+#'
 #' @export
 #'
-qdist.string <- function(x, y) {
+qdelta.string <- function(x, y) {
     # Coerce inputs into strings.
     x <- toString(x);
     y <- toString(y);
@@ -67,10 +153,27 @@ qdist.string <- function(x, y) {
 }
 
 #'
-#' @name qdist
+#' @name qdelta.list
+#' @rdname qdelta.list
+#' @family qdelta functions
+#'
+#' @title
+#' Compute the Delta Between Two Lists.
+#'
+#' @description
+#' Computes the delta between lists, \code{x} and \code{y}.
+#'
+#' @details
+#' Computes the delta between each value pair in the two lists, then sums as to get the final delta value.
+#'
+#' @param x the first list.
+#' @param y the second list.
+#'
+#' @return A single numeric delta value.
+#'
 #' @export
 #'
-qdist.list <- function(x, y) {
+qdelta.list <- function(x, y) {
     # Validate inputs
     assert_that(is.string(x), msg="x must be a list!");
     assert_that(is.string(y), msg="y must be a list!");
@@ -85,7 +188,7 @@ qdist.list <- function(x, y) {
     length(y) <- ll;
 
     # Compute distances.
-    dist <- map2(x, y, ~qdist(.x, .y)) %>%
+    dist <- map2(x, y, ~qdelta(.x, .y)) %>%
         map(~.x^2) %>%
         reduce(sum) %>%
         sqrt(.);
@@ -95,20 +198,45 @@ qdist.list <- function(x, y) {
 }
 
 #'
-#' @name qdist
+#' @name qdelta
+#' @rdname qdelta
+#' @family qdelta functions
+#'
+#' @title
+#' Compute the Delta Between Two Values
+#'
+#' @description
+#' Computes the delta between two alike-type values, \code{x} and \code{y}.
+#'
+#' @details
+#' First determines the type of the two values, then calls the respective qdelta function to compute the actual delta value.
+#'
+#' @param x the first value.
+#' @param y the second value.
+#'
+#' @return A single numeric delta value.
+#'
 #' @export
 #'
-qdist <- function(x, y) {
+qdelta <- function(x, y) {
     # Default distance.
     dist <- Inf;
 
     # Attempt to apply numeric distance.
     if(is.numeric.na.null(x) && is.numeric.na.null(y)) {
-        dist <- qdist.numeric(x, y);
+        dist <- qdelta.numeric(x, y);
+    }
+    # Attempt to apply nubmer distance.
+    else if (is.number.na.null(x) && is.number.na.null(y)) {
+        dist <- qdelta.number(x, y);
+    }
+    # Attempt to apply boolean distance.
+    else if (is.boolean(x) && is.boolean(y)) {
+        dist <- qdelta.boolean(x, y);
     }
     # Otherwise default to string distance.
     else {
-        dist <- qdist.string(x, y);
+        dist <- qdelta.string(x, y);
     }
 
     # Return the computed distance value.

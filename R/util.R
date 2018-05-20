@@ -9,37 +9,67 @@
 # Date  : 5/3/2018
 # ==================================================
 
-#
-# Alias of the view function.
-#
-view <- utils::View
+
+
+
+
+#' @export
+view <- utils::View;
+
+
+
+
 
 #'
+#' @name printf
+#' @rdname printf
+#'
+#' @title
+#' Formatted Print Function
+#'
+#' @description
 #' The missing printf function.
+#'
+#' @details
+#' Uses \code{\link[base]{sprintf}} internally.
 #'
 #' @param format the format string to use.
 #' @param ... the arguments for the given format string.
 #'
-#' @name printf
+#' @seealso \code{\link[base]{sprintf}}
 #'
 #' @export
-#' @rdname printf
 #'
 printf <- function(format, ...) {
   invisible(print(sprintf(format, ...)));
 }
 
+
+
+
+
 #'
+#' @name yesno
+#' @rdname yesno
+#'
+#' @title
+#' Convert a Boolean to a String
+#'
+#' @description
 #' Returns 'yes' or 'no' based off of the provided boolean input.
+#'
+#' @details
+#' If \code{yes} is specified, the value of \code{yes} is used instead of the default value \code{'yes'}.
+#'
+#' If \code{no} is specified, the value of \code{no} is used instead of the default value \code{'no'}.
 #'
 #' @param bool the boolean value to test.
 #' @param yes the value to return on a true  input.
 #' @param no  the value to return on a false input.
 #'
-#' @name yesno
+#' @return 'yes' or 'no'.
 #'
 #' @export
-#' @rdname yesno
 #'
 yesno <- function(bool, yes='yes', no='no') {
 
@@ -55,35 +85,38 @@ yesno <- function(bool, yes='yes', no='no') {
 
 }
 
+
+
+
+
 #'
-#' Utility function to create a named value.
+#' @name named
+#' @rdname named
+#'
+#' @title
+#' Utility Value Naming Function
+#'
+#' @description
+#' Utility function to add names to a given value.
+#'
+#' @details
+#' Implemented as:
+#'
+#' \code{\link[base]{names}(value) <- \link[base]{list}(...)}
 #'
 #' @param value the value(s) to be named.
 #' @param ... the name to(s) give the value(s).
 #'
 #' @return the named value(s).
 #'
-#' @name named
+#' @seealso \code{\link[base]{unname}}
 #'
 #' @export
-#' @rdname named
 #'
 named <- function(value, ...) {
   # Rename the value.
   names(value) <- list(...);
 
   # Return the renamed value.
-  return(value);
-}
-
-#'
-#' @export
-#' @rdname named
-#'
-unnamed <- function(value) {
-  # Remove the names from the value.
-  names(value) <- NULL;
-
-  # Return the unnamed value.
   return(value);
 }

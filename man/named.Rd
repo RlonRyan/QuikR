@@ -2,12 +2,9 @@
 % Please edit documentation in R/util.R
 \name{named}
 \alias{named}
-\alias{unnamed}
-\title{Utility function to create a named value.}
+\title{Utility Value Naming Function}
 \usage{
 named(value, ...)
-
-unnamed(value)
 }
 \arguments{
 \item{value}{the value(s) to be named.}
@@ -18,5 +15,13 @@ unnamed(value)
 the named value(s).
 }
 \description{
-Utility function to create a named value.
+Utility function to add names to a given value.
+}
+\details{
+Implemented as:
+
+\code{\link[base]{names}(value) <- \link[base]{list}(...)}
+}
+\seealso{
+\code{\link[base]{unname}}
 }

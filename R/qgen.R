@@ -9,32 +9,39 @@
 # Date  : 5/18/2018
 # ==================================================
 
-#' @title Creates a value to be used in a matric.
+#'
+#' @name qgen.element
+#' @rdname qgen.element
+#'
+#' @title
+#' Creates a value to be used in a matric.
 #'
 #' @description
 #' Creates a value for (row, col) such that value = row * ncol + col.
 #'
+#' @details
+#' The default implementation returns the row * number of columns plus the column number.
+#'
+#' The diagonal implementation returns a matrix with the given value on the diagonal.
+#'
 #' @return a value representing the row * ncol + col.
 #'
-#' @name qgen.matrix.element.default
+NULL
+
+#' @name qgen.element
+#' @rdname qgen.element
 #' @export
-#'
-qgen.matrix.element.default <- function(row, col, nrow, ncol) {
+qgen.element.default <- function(row, col, nrow, ncol) {
     # Return the row * number of columns plus the column number.
     return(((row - 1) * ncol) + col);
 }
 
-#' @title Creates a value to be used in a matric.
-#'
-#' @description
-#' Creates a value for (row, col) such that value = row * ncol + col.
-#'
-#' @return a value representing the row * ncol + col.
-#'
-#' @name qgen.matrix.element.default
+#' @name qgen.matrix.element
+#' @rdname qgen.matrix.element
+#' @param value the value to be placed on the diagonal.
+#' @param orelse the value to be placed everwhere else.
 #' @export
-#'
-qgen.matrix.element.diagonal <- function(row, col, nrow, ncol, value=1, orelse=0) {
+qgen.element.diagonal <- function(row, col, nrow, ncol, value=1, orelse=0) {
     # If row = col then 1
     if (row == col) {
         return(value);
@@ -44,20 +51,31 @@ qgen.matrix.element.diagonal <- function(row, col, nrow, ncol, value=1, orelse=0
 }
 
 #'
-#' @title Create a nrow by ncol matrix.
+#' @name qgen
+#' @rdname qgen
+#' @aliases qgen.matrix
+#' @aliases qgen.data.frame
+#'
+#' @title
+#' Generates a Table
 #'
 #' @description
-#' Creates a matrix using the given generator function.
+#' Creates a table with dimensions \code{nrow} x \code{ncol} using the given generator function.
+#'
+#' @details
+#' Generates a table (either a matrix or a dataframe), using the given generator function, passing any \code{...} arguments to the generator function.
 #'
 #' @param nrow the number of rows that will be in the resulting matrix.
 #' @param ncol the number of columns that will be int the resulting matrix.
 #' @param func the function used to generate values.
 #'
-#' @return a matrix generated with the given generator function.
+#' @return a table generated with the given generator function.
 #'
+NULL;
+
 #' @name qgen
+#' @rdname qgen
 #' @export
-#'
 qgen.matrix <- function(nrow, ncol, func=qgen.matrix.element.default, ...) {
     # Allocate the matrix.
     res <- matrix(nrow=nrow, ncol=ncol);
@@ -73,15 +91,9 @@ qgen.matrix <- function(nrow, ncol, func=qgen.matrix.element.default, ...) {
     return(res);
 }
 
-#'
-#' @title Create a nrow by ncol matrix.
-#'
-#' @description
-#' Creates a matrix using the given generator function.
-#'
 #' @name qgen
+#' @rdname qgen
 #' @export
-#'
 qgen.data.frame <- function(nrow, ncol, func=qgen.matrix.element.default, ...) {
     # Create a matrix.
     res <- qgen.matrix(nrow, ncol, func, ...);

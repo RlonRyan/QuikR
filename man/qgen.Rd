@@ -4,8 +4,10 @@
 \alias{qgen}
 \alias{qgen.matrix}
 \alias{qgen}
+\alias{qgen.matrix}
+\alias{qgen}
 \alias{qgen.data.frame}
-\title{Create a nrow by ncol matrix.}
+\title{Generates a Table}
 \usage{
 qgen.matrix(nrow, ncol, func = qgen.matrix.element.default, ...)
 
@@ -19,10 +21,11 @@ qgen.data.frame(nrow, ncol, func = qgen.matrix.element.default, ...)
 \item{func}{the function used to generate values.}
 }
 \value{
-a matrix generated with the given generator function.
+a table generated with the given generator function.
 }
 \description{
-Creates a matrix using the given generator function.
-
-Creates a matrix using the given generator function.
+Creates a table with dimensions \code{nrow} x \code{ncol} using the given generator function.
+}
+\details{
+Generates a table (either a matrix or a dataframe), using the given generator function, passing any \code{...} arguments to the generator function.
 }

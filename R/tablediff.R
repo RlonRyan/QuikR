@@ -2,7 +2,7 @@
 # tablediff.R
 # --------------------------------------------------
 #
-# Table diff functions.
+# (OLD) Table diff functions.
 #
 # --------------------------------------------------
 # Author: RlonRyan

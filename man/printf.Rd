@@ -2,7 +2,7 @@
 % Please edit documentation in R/util.R
 \name{printf}
 \alias{printf}
-\title{The missing printf function.}
+\title{Formatted Print Function}
 \usage{
 printf(format, ...)
 }
@@ -13,4 +13,10 @@ printf(format, ...)
 }
 \description{
 The missing printf function.
+}
+\details{
+Uses \code{\link[base]{sprintf}} internally.
+}
+\seealso{
+\code{\link[base]{sprintf}}
 }
