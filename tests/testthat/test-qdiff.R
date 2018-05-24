@@ -20,8 +20,8 @@ context("qdiff");
 test_that("qdiff works with mtcars", {
 
     # Compute diff, both dropping, and not dropping.
-    a.diff <- qdiff(mtcars, mtcars, drop = TRUE);
-    b.diff <- qdiff(mtcars, mtcars, drop = FALSE);
+    a.diff <- qdiff.table(mtcars, mtcars, drop = TRUE);
+    b.diff <- qdiff.table(mtcars, mtcars, drop = FALSE);
 
     # Compute expected lengths.
     a.e.len <- 0;
@@ -40,8 +40,8 @@ test_that("qdiff works with mtcars", {
     mtcars2$mpg <- 2*mtcars2$mpg;
 
     # Compute the diffs, both dropping and not dropping.
-    a.diff <- qdiff(mtcars, mtcars2, drop = TRUE);
-    b.diff <- qdiff(mtcars, mtcars2, drop = FALSE);
+    a.diff <- qdiff.table(mtcars, mtcars2, drop = TRUE);
+    b.diff <- qdiff.table(mtcars, mtcars2, drop = FALSE);
 
     # Compute expected lengths.
     a.e.len <- nrow(mtcars);
@@ -66,7 +66,7 @@ test_that("qdiff works with matricies", {
     actual <- expected;
 
     # Perform initial diff.
-    diff <- qdiff(actual, expected);
+    diff <- qdiff.table(actual, expected);
 
     # Test that no cells differ to start.
     expect_equal(nrow(diff), 0);
@@ -82,7 +82,7 @@ test_that("qdiff works with matricies", {
             actual[r, c] <- actual[r, c] * 2;
 
             # Compute difference.
-            diff <- qdiff(actual, expected);
+            diff <- qdiff.table(actual, expected);
 
             # Test that number of differing cells is the same.
             expect_equal(nrow(diff), i)

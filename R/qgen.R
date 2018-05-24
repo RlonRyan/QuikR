@@ -36,8 +36,8 @@ qgen.element.default <- function(row, col, nrow, ncol) {
     return(((row - 1) * ncol) + col);
 }
 
-#' @name qgen.matrix.element
-#' @rdname qgen.matrix.element
+#' @name qgen.element
+#' @rdname qgen.element
 #' @param value the value to be placed on the diagonal.
 #' @param orelse the value to be placed everwhere else.
 #' @export
@@ -76,7 +76,7 @@ NULL;
 #' @name qgen
 #' @rdname qgen
 #' @export
-qgen.matrix <- function(nrow, ncol, func=qgen.matrix.element.default, ...) {
+qgen.matrix <- function(nrow, ncol, func=qgen.element.default, ...) {
     # Allocate the matrix.
     res <- matrix(nrow=nrow, ncol=ncol);
 
@@ -94,7 +94,7 @@ qgen.matrix <- function(nrow, ncol, func=qgen.matrix.element.default, ...) {
 #' @name qgen
 #' @rdname qgen
 #' @export
-qgen.data.frame <- function(nrow, ncol, func=qgen.matrix.element.default, ...) {
+qgen.data.frame <- function(nrow, ncol, func=qgen.element.default, ...) {
     # Create a matrix.
     res <- qgen.matrix(nrow, ncol, func, ...);
 

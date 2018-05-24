@@ -2,7 +2,7 @@
 % Please edit documentation in R/functions.R
 \name{fun.res.select}
 \alias{fun.res.select}
-\title{Filters a function to return only values matching the given selection.}
+\title{Select Function Return Values}
 \usage{
 fun.res.select(func, selection)
 }
@@ -11,6 +11,12 @@ fun.res.select(func, selection)
 
 \item{selection}{the results to be retained from the function.}
 }
+\value{
+A wrapped function.
+}
 \description{
 Filters a function to return only values matching the given selection.
+}
+\details{
+For a given function, the function returns a wrapper that only retains return values specified in the selected list.
 }

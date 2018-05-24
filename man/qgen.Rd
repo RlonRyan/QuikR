@@ -9,9 +9,9 @@
 \alias{qgen.data.frame}
 \title{Generates a Table}
 \usage{
-qgen.matrix(nrow, ncol, func = qgen.matrix.element.default, ...)
+qgen.matrix(nrow, ncol, func = qgen.element.default, ...)
 
-qgen.data.frame(nrow, ncol, func = qgen.matrix.element.default, ...)
+qgen.data.frame(nrow, ncol, func = qgen.element.default, ...)
 }
 \arguments{
 \item{nrow}{the number of rows that will be in the resulting matrix.}

@@ -4,9 +4,18 @@
 \alias{qgen.element}
 \alias{qgen.element}
 \alias{qgen.element.default}
+\alias{qgen.element}
+\alias{qgen.element.diagonal}
 \title{Creates a value to be used in a matric.}
 \usage{
 qgen.element.default(row, col, nrow, ncol)
+
+qgen.element.diagonal(row, col, nrow, ncol, value = 1, orelse = 0)
+}
+\arguments{
+\item{value}{the value to be placed on the diagonal.}
+
+\item{orelse}{the value to be placed everwhere else.}
 }
 \value{
 a value representing the row * ncol + col.

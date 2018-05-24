@@ -13,6 +13,12 @@ fun.res.remap(func, mapping, drop = FALSE)
 
 \item{drop}{if return values that weren't in the mapping should be dropped.}
 }
+\value{
+A remapped function.
+}
 \description{
 Like the select function, but does not drop unmatched results.
+}
+\details{
+For every pair in the mapping of for \code{(x='y')}, the function take the result of name x and renames it to y.
 }
